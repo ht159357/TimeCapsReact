@@ -1,4 +1,4 @@
-'use strict';
+
 
 // Do this as the first thing so that any code reading it knows the right env.
 process.env.BABEL_ENV = 'development';
@@ -127,7 +127,8 @@ checkBrowsers(paths.appPath, isInteractive)
       }
 
       console.log(chalk.cyan('Starting the development server...\n'));
-      openBrowser(urls.localUrlForBrowser);
+      // openBrowser(urls.localUrlForBrowser);
+      openBrowser(`http://${urls.lanUrlForConfig}:${DEFAULT_PORT}`)
     });
 
     ['SIGINT', 'SIGTERM'].forEach(function(sig) {
