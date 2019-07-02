@@ -1,11 +1,11 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button } from 'antd-mobile';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary">Button</Button>
+      <Button type="primary">hello world!</Button>
     </div>
   );
 }
