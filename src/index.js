@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '@/index.scss';
-import App from '@/view/App.jsx';
+import App from '@/view/App.tsx';
 import * as serviceWorker from '@/serviceWorker';
 import 'lib-flexible'
 

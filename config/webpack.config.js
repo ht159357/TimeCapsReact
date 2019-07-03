@@ -488,6 +488,10 @@ module.exports = function(webpackEnv) {
             // Make sure to add the new loader(s) before the "file" loader.
           ],
         },
+        {
+          test: /\.tsx?$/,
+          loader: "awesome-typescript-loader"
+        }
       ],
     },
     plugins: [
