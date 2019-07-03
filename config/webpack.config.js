@@ -1,5 +1,3 @@
-
-
 const fs = require('fs');
 const isWsl = require('is-wsl');
 const path = require('path');
@@ -30,7 +28,7 @@ const postcssNormalize = require('postcss-normalize');
 const px2rem = require('postcss-px2rem-exclude');
 
 // Source maps are resource heavy and can cause out of memory issue for large source files.
-const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'; // 生产环境去除sourcemap
 // Some apps do not need the benefits of saving a web request, so not inlining the chunk
 // makes for a smoother build process.
 const shouldInlineRuntimeChunk = process.env.INLINE_RUNTIME_CHUNK !== 'false';
@@ -94,6 +92,13 @@ module.exports = function(webpackEnv) {
             require('postcss-flexbugs-fixes'),
             require('postcss-preset-env')({
               autoprefixer: {
+                "overrideBrowserslist": [
+                  "last 5 versions",
+                  "not ie <= 8",
+                  "iOS >= 7",
+                  "Firefox >= 20",
+                  "Android >= 4.1"
+                ],
                 flexbox: 'no-2009',
               },
               stage: 3,
@@ -119,6 +124,9 @@ module.exports = function(webpackEnv) {
         },
       });
     }
+    // loaders.push("postcss-loader")
+    // console.log(loaders)
+    // process.exit()
     return loaders;
   };
 
@@ -197,6 +205,8 @@ module.exports = function(webpackEnv) {
             compress: {
               ecma: 5,
               warnings: false,
+              drop_debugger: true,
+              drop_console: true, // 去除生产环境下的log
               // Disabled because of an issue with Uglify breaking seemingly valid code:
               // https://github.com/facebook/create-react-app/issues/2376
               // Pending further investigation:
@@ -277,6 +287,7 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
+        '@': path.resolve('src')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
@@ -287,7 +298,7 @@ module.exports = function(webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+        new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
       ],
     },
     resolveLoader: {

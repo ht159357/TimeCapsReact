@@ -20,24 +20,10 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <!-- <script>
-        (function (doc, win) {
-            var docEl = doc.documentElement,
-            resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-            recalc = function () {
-                var clientWidth = docEl.clientWidth;
-                if (!clientWidth) return;
-                docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
-            };
-            if (!doc.addEventListener) return;
-            win.addEventListener(resizeEvt, recalc, false);
-            doc.addEventListener('DOMContentLoaded', recalc, false);
-        })(document, window);
-    </script> -->
     <script>
         !(function(win, doc) {
             function setFontSize() {
-                var baseFontSize = 100;
+                var baseFontSize = 16;
                 var baseWidth = 320;
                 var clientWidth = document.documentElement.clientWidth ||         window.innerWidth;
                 var innerWidth = Math.max(Math.min(clientWidth, 480), 320);

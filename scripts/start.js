@@ -125,9 +125,7 @@ checkBrowsers(paths.appPath, isInteractive)
         );
         console.log();
       }
-      console.log(`
-        ${chalk.green('我已经在很努力的加载了，─=≡Σ(((つ•̀ω•́)つ')}
-      `)
+      console.log(chalk.green('我已经在很努力的加载了，─=≡Σ(((つ•̀ω•́)つ'))
       console.log(chalk.cyan('Starting the development server...\n'));
       // openBrowser(urls.localUrlForBrowser);
       openBrowser(`http://${urls.lanUrlForConfig}:${DEFAULT_PORT}`)
