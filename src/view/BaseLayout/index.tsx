@@ -9,7 +9,7 @@ class BaseLayout extends React.Component {
   router = [
     {
       name: 'index',
-      path: '/index',
+      path: '/',
       component: Index
     },
     {
@@ -29,7 +29,7 @@ class BaseLayout extends React.Component {
         <Switch>
           {
             this.router.map((item) =>
-              <Route path={item.path} component={item.component} />
+              <Route path={item.path} exact component={item.component} />
             )
           }
         </Switch>
