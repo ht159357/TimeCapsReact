@@ -1,42 +1,25 @@
 import * as React from 'react'
 import { Switch, Route, Link } from "react-router-dom"
-import Index from '@/view/Index/index'
-import Demo from '@/view/Demo/index'
-import Error404 from '@/view/ErrorPages/404'
+import Routers from '@/router/index'
 import '@/view/BaseLayout/index.scss'
 
 class BaseLayout extends React.Component {
-  router = [
-    {
-      name: 'index',
-      path: '/',
-      component: Index
-    },
-    {
-      name: 'demo',
-      path: '/demo',
-      component: Demo
-    },
-    {
-      name: '404',
-      path: '',
-      component: Error404
-    }
-  ]
+  router = new Routers().router
+
   render () {
     return (
       <div className="index-page">
         <Switch>
           {
-            this.router.map((item) =>
-              <Route path={item.path} exact component={item.component} />
+            this.router.map((item, index) =>
+              <Route path={item.path} exact component={item.component} key={index} />
             )
           }
         </Switch>
         <nav>
           <ul>
-            <li><Link to="./">Index</Link></li>
-            <li><Link to="./demo">Demo</Link></li>
+            <li><Link to="./">index</Link></li>
+            <li><Link to="./demo">demo</Link></li>
           </ul>
         </nav>
       </div>
