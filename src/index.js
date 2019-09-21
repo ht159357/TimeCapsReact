@@ -1,9 +1,10 @@
 import '@/index.scss'
+import '@/assets/css/reset.scss'
 import 'lib-flexible'
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import App from '@/view/App'
 import * as serviceWorker from '@/serviceWorker'
+import App from '@/view/App'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
