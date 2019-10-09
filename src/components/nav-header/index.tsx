@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import '@/view/index/index.scss';
 
 class Index extends React.Component {

@@ -1,16 +1,12 @@
-import * as React from 'react'
 import '@/view/Index/index.scss'
+import * as React from 'react'
+// import dataType from '@/utils/dataType'
 
 class Index extends React.Component {
-  render () { 
+  render () {
     return (
       <div>
-        <header className="header-box">
-          <span>导航栏</span>
-        </header>
-        <div>
-          index page
-        </div>
+        index
       </div>
     )
   }
