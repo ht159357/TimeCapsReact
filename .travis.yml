@@ -5,11 +5,10 @@ services:
   - docker
 
 before_install:
-  - npm install
   - yarn install
 
 script:
-  - npm run build
+  - yarn run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t sunnyharoro/timecapsreact:latest .
   - docker push sunnyharoro/timecapsreact:latest
