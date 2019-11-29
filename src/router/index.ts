@@ -1,5 +1,5 @@
 import Index from '@/view/Index/index'
-import Demo from '@/view/Demo/index'
+import Game from '@/view/Game/index.jsx'
 import Error404 from '@/view/ErrorPages/404'
 import Error500 from '@/view/ErrorPages/500'
 
@@ -11,9 +11,9 @@ class Routers {
       component: Index
     },
     {
-      name: 'demo',
-      path: '/demo',
-      component: Demo
+      name: 'game',
+      path: '/game',
+      component: Game
     },
     {
       name: '404',
