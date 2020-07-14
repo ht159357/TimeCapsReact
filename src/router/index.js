@@ -18,12 +18,12 @@ class Routes {
                 {
                     name: '射击类',
                     path: '/game/shot',
-                    component: () => {'射击'}
+                    component: () => '射击'
                 },
                 {
                     name: '赛车类',
                     path: '/game/car',
-                    component: () => {'赛车'}
+                    component: () => '赛车'
                 }
             ]
         },

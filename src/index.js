@@ -5,6 +5,7 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import * as serviceWorker from '@/serviceWorker'
 import App from '@/view/App.jsx'
+import 'lib-flexible'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 
